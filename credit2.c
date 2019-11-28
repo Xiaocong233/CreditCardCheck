@@ -114,17 +114,22 @@ int main(void)
         int sum = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12);
         int sum2 = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12 + Digit14);
         int sum3 = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12 + Digit14 + Digit16);
-        if ((CardNumber >= 1000000000000) && (CardNumber < 10000000000000) && (((sum + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13)) % 10) == 0) && (digit13 == 4))//check if the card is a visa
+        if ((CardNumber >= 1000000000000) && (CardNumber < 10000000000000)
+            && (((sum + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13)) % 10) == 0) 
+            && (digit13 == 4))//check if the card is a visa
         {
             printf("VISA\n");
         }
-        else if ((CardNumber >= 100000000000000) && (CardNumber < 1000000000000000) && (((sum2 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0) && (digit15 == 3) && (digit14 == 4 || digit14 == 7))//check if the card is a American Express
+        else if ((CardNumber >= 100000000000000) && (CardNumber < 1000000000000000) 
+                 && (((sum2 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0) && (digit15 == 3) 
+                 && (digit14 == 4 || digit14 == 7))//check if the card is a American Express
         {
             printf("AMEX\n");
         }
         else if (CardNumber >= 1000000000000000 && CardNumber < 10000000000000000)//check if the card is a MasterCard or perhaps a 16 digit Visa
         {
-            if ((((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0) && (digit16 == 5) && (digit15 == 1 || digit15 == 2 || digit15 == 3 || digit15 == 4 || digit15 == 5))
+            if ((((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0) && (digit16 == 5) 
+                && (digit15 == 1 || digit15 == 2 || digit15 == 3 || digit15 == 4 || digit15 == 5))
             {
                 printf("MASTERCARD\n");
             }
