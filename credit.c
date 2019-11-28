@@ -5,7 +5,7 @@ int main(void)
 {
     long cardNumber;
     cardNumber = get_long("Number: ");
-    if ((cardNumber >= 1000000000000 && cardNumber < 10000000000000))
+    if ((cardNumber >= 1000000000000 && cardNumber < 10000000000000)) //check if the card is VISA 13 digit type
     {
         int digit1 = cardNumber % 10;
         cardNumber /= 10;
@@ -87,7 +87,7 @@ int main(void)
         cardNumber /= 10;
         int digit13 = cardNumber % 10;
         int sum = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12);
-        if (((sum + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13)) % 10) == 0 && (digit13 == 4))
+        if (((sum + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13)) % 10) == 0 && (digit13 == 4)) //Using Luhn's Algorithm to check if the card is actually valid or not
         {
             printf("VISA\n");
         }
@@ -97,7 +97,7 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    else if (cardNumber >= 100000000000000 && cardNumber < 1000000000000000)
+    else if (cardNumber >= 100000000000000 && cardNumber < 1000000000000000) //check if the card is potentially American Express type
     {
         int digit1 = cardNumber % 10;
         cardNumber /= 10;
@@ -192,7 +192,7 @@ int main(void)
         cardNumber /= 10;
         int digit15 = cardNumber % 10;
         int sum2 = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12 + Digit14);
-        if (((sum2 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit15 == 3) && (digit14 == 4 || digit14 == 7))
+        if (((sum2 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit15 == 3) && (digit14 == 4 || digit14 == 7)) //Using Luhn's Algorithm to check if the card is actually valid or not
         {
             printf("AMEX\n");
         }
@@ -201,7 +201,7 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    else if (cardNumber >= 1000000000000000 && cardNumber < 10000000000000000)
+    else if (cardNumber >= 1000000000000000 && cardNumber < 10000000000000000) //check if the card is potentially either a MasterCard type or a Visa 16 digit type
     {
         int digit1 = cardNumber % 10;
         cardNumber /= 10;
@@ -307,11 +307,11 @@ int main(void)
             Digit16 = digit16 * 2;
         }
         int sum3 = (Digit2 + Digit4 + Digit6 + Digit8 + Digit10 + Digit12 + Digit14 + Digit16);
-        if (((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit16 == 5) && (digit15 == 1 || digit15 == 2 || digit15 == 3 || digit15 == 4 || digit15 == 5))
+        if (((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit16 == 5) && (digit15 == 1 || digit15 == 2 || digit15 == 3 || digit15 == 4 || digit15 == 5)) //Using Luhn's Algorithm to check if the card is actually valid or not
         {
             printf("MASTERCARD\n");
         }
-        else if (((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit16 == 4))
+        else if (((sum3 + (digit1 + digit3 + digit5 + digit7 + digit9 + digit11 + digit13 + digit15)) % 10) == 0 && (digit16 == 4)) //Using Luhn's Algorithm to check if the card is actually valid or not
         {
             printf("VISA\n");
         }
